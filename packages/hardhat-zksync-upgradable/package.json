@@ -1,5 +1,5 @@
 {
-  "name": "@matterlabs/hardhat-zksync-upgradable",
+  "name": "@gabspeck/hardhat-zksync-upgradable",
   "version": "1.5.1",
   "description": "Hardhat plugin to deploy and update upgradable smart contracts for the ZKsync network",
   "repository": "github:matter-labs/hardhat-zksync",
