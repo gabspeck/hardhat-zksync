@@ -77,7 +77,8 @@ export function makeUpgradeProxy(hre: HardhatRuntimeEnvironment): UpgradeFunctio
             );
             const proxy = transparentUpgradeableProxyFactory.attach(proxyAddress);
 
-            return (nextImpl, call) => (call ? proxy.upgradeToAndCall(nextImpl, call) : proxy.upgradeTo(nextImpl));
+            return (nextImpl, call) =>
+                call || !proxy.upgradeTo ? proxy.upgradeToAndCall(nextImpl, call) : proxy.upgradeTo(nextImpl);
         } else {
             const manifest = await Manifest.forNetwork(provider);
 
